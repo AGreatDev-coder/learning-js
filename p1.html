@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading"></h1>
+    <p id="paragraph"></p>
+    <div id="divs"></div>
+    <h2 id="head-2"></h2>
+
+    <script>
+        let head = document.getElementById("heading")
+        let para = document.getElementById("paragraph")
+        let divss = document.getElementById("divs")
+        let head2 = document.getElementById("head-2")
+
+        head.style.color="red"
+        head.innerText="Helloooooo"
+
+        para.style.color="green"
+        para.innerText="This is a paragraph added via JavaScript."
+
+        // divss.style.color="blue"
+        // divss.innerText="This is a div added via JavaScript."
+
+        divss.innerHTML = `<h2 style='color:blue'>This is a div added via JavaScript.</h2>
+                        <p>This is another paragraph inside the div.</p>;`
+
+        head2.textContent=`This is a heading 2 added via 
+        JavaScript using textContent.`
+        // removes all the extra spaces and formats the text properly
+
+        console.log(head.innerText);
+        console.log(para.innerText);
+        // console.log(divss.innerText);
+        console.log(head2.textContent);
+        // textContent does not consider hidden elements, whereas innerText does
+
+    </script>
+</body>
+</html>
