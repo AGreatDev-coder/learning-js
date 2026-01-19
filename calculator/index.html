@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            background-color: #a9afcf;
+            padding: 20px;
+            border-radius: 10px;
+            width: 500px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #btncontainer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        #btncontainer>*{
+            width: 23%;
+            height: 50px;
+            margin: 5px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            color: rgb(85, 85, 85);
+            cursor: pointer;
+        }
+
+        input{
+            width: 97%;
+            height: 50px;
+            font-size: 24px;
+            text-align: right;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <input type="text" disabled>
+        <div id ="btncontainer">
+            <button>AC</button>
+            <button>DEL</button>
+            <button>/</button>
+            <button>%</button>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button>*</button>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button>-</button>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button>+</button>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button>=</button>
+        </div>
+    </div>
+
+    <script>
+        let arrButtons=['AC','DEL','/','%','7','8','9','*','4','5','6','-','1','2','3','+','00','0','.','=']
+        let inputField = document.querySelector("input");
+        let buttons = document.querySelectorAll("#btncontainer>*");
+
+        buttons.forEach(function(button){
+            button.addEventListener("click",calc)
+        })
+
+        function calc(event){
+            if(arrButtons.includes(event.target.innerText))
+        {
+           inputField.value += event.target.innerText; 
+        }
+            if(event.target.innerText === "=")
+        {
+            inputField.value = eval(inputField.value);
+            return
+        }
+        if(event.target.innerText === "AC")
+        {
+            inputField.value = "";
+            return
+        }
+        if(event.target.innerText === "DEL")
+        {
+            inputField.value = inputField.value.slice(0, inputField.value.length ,- 1);
+            return
+        }
+        }
+    </script>
+</body>
+
+</html>
